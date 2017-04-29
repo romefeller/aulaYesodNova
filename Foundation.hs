@@ -7,11 +7,13 @@
 {-# LANGUAGE QuasiQuotes                #-}
 {-# LANGUAGE ViewPatterns               #-}
 {-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE TypeFamilies               #-}
 module Foundation where
 
 import Yesod
 import Data.Text
+import Database.Persist
 import Database.Persist.Postgresql
 
 data App = App
@@ -19,12 +21,15 @@ data App = App
         connPool       :: ConnectionPool
     }
 
-mkYesodData "App" $(parseRoutesFile "routes")
 
-share [mkPersist sqlSettings {mpsGenerateLenses = True}, mkMigrate "migrateAll"][persistLowerCase|
-    Cliente
+
+share [mkPersist sqlSettings, mkMigrate "migrateAll"][persistLowerCase|
+    Cliente json
         nome Text
 |]
+
+
+mkYesodData "App" $(parseRoutesFile "routes")
 
 instance Yesod App
 

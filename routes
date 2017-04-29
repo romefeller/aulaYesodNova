@@ -1,2 +1,5 @@
 /              HomeR GET
 /add/#Int/#Int AddR  GET
+/cliente       ClienteR POST
+/lista/cliente ListClienteR GET
+/busca/cliente/#ClienteId BuscaR GET

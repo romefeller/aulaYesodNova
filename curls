@@ -1,0 +1,3 @@
+curl -X GET https://hask4-romefeller.c9users.io/lista/cliente
+
+curl -X POST https://hask4-romefeller.c9users.io/cliente -d '{"nome" : "joâo"}'
