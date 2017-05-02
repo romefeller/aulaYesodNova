@@ -1,10 +1,10 @@
-name:               dummy
+name:               aula
 version:            0.0.0
 cabal-version:      >= 1.8
 build-type:         Simple
 extra-source-files: routes
 
-executable          dummy
+executable          aula
   main-is:          Main.hs
   other-modules:    Application
                     Foundation
